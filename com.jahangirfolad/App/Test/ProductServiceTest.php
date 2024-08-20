@@ -21,5 +21,8 @@ $repository = new ProductRepository($pdo);
 
 $service = new ProductService($repository);
 
+
+
 $product = new Product("rebar" , "kg");
+
 $service->saveProduct($product);
