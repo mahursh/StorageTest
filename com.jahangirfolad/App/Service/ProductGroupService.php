@@ -42,7 +42,7 @@ class ProductGroupService
 
     public function fetchChildGroups(\ProductGroup $productGroup)
     {
-        $this->repository->fetchChildGroups($productGroup);
+        return $this->repository->fetchChildGroups($productGroup);
     }
 
     public function addChildGroup(\ProductGroup $parentGroup, \ProductGroup $childGroup)
