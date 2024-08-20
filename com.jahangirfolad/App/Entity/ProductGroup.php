@@ -49,6 +49,10 @@ class ProductGroup
     {
         return $this->childGroupList;
     }
+    public function setChildGroupList($childGroupList){
+        $this->childGroupList = $childGroupList;
+    }
+
 
     public function addChildGroup(ProductGroup $childGroup)
     {

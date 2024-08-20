@@ -2,6 +2,9 @@
 
 namespace Repository;
 
+use PDO;
+use ProductGroup;
+
 class ProductGroupRepository
 {
 
