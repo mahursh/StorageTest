@@ -1,0 +1,23 @@
+CREATE TABLE product_unit_tbl (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE product_group_tbl (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    parent_group_id INT,
+    FOREIGN KEY (parent_group_id) REFERENCES product_group_tbl(id) ON DELETE SET NULL
+);
+
+CREATE TABLE product_tbl (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    unit_id INT,
+    product_group_id INT,
+    FOREIGN KEY (unit_id) REFERENCES product_unit_tbl(id) ON DELETE SET NULL,
+    FOREIGN KEY (product_group_id) REFERENCES product_group_tbl(id) ON DELETE SET NULL
+);
+
+
+ALTER TABLE product_group_tbl ADD COLUMN child_group_list JSON;
