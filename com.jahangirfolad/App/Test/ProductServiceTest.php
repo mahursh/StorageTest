@@ -31,7 +31,7 @@ require_once '../Controller/ProductController.php';
 require_once '../Entity/ProductUnit.php';
 require_once '../Entity/ProductGroup.php';
 
-$pdo = new PDO('mysql:host=localhost;dbname=storage2', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=storage', 'root', '');
 
 
 $unitRepository = new ProductUnitRepository($pdo);
@@ -51,4 +51,6 @@ $controller = new ProductController($service);
 
 
 
-$product = $controller->createProduct("rebar" , $unit->getId(),$group->getId() );
+$product = new Product("rebar" , $unit->getId(),$group->getId() );
+//echo $product;
+//$service->saveProduct($product);

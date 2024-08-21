@@ -11,7 +11,7 @@ require_once '../Repository/ProductUnitRepository.php';
 require_once '../Entity/ProductUnit.php';
 require_once '../Service/ProductUnitService.php';
 
-$pdo = new PDO('mysql:host=localhost;dbname=storage2', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=storage', 'root', '');
 
 $repository = new ProductUnitRepository($pdo);
 $service = new ProductUnitService($repository);

@@ -10,7 +10,7 @@ require_once '../Repository/ProductGroupRepository.php';
 require_once '../Entity/ProductGroup.php';
 require_once '../Service/ProductGroupService.php';
 
-$pdo = new PDO('mysql:host=localhost;dbname=storage2', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=storage', 'root', '');
 
 $repository = new ProductGroupRepository($pdo);
 
