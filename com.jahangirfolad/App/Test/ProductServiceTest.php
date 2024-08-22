@@ -51,6 +51,6 @@ $controller = new ProductController($service);
 
 
 
-$product = new Product("rebar" , $unit->getId(),$group->getId() );
+$product = new Product("rebar" , $unitService->getUnitById($unit->getId()),$groupService->getProductGroupById($group->getId()) );
 //echo $product;
-//$service->saveProduct($product);
+$service->saveProduct($product);
