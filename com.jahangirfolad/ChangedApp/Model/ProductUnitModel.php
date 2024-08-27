@@ -1,9 +1,9 @@
 <?php
 
-use Entity\ProductUnit;
+
 use Library\Database;
 
-class ProductModel
+class ProductUnitModel
 {
 
     private $db;
