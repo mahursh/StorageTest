@@ -7,10 +7,10 @@ use PDO;
 
 class Database
 {
-    private $localhost = DB_HOST;
-    private $username = DB_USER;
-    private $password = DB_PASSWORD;
-    private $db = DB_NAME;
+    private $localhost = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $db = "jf";
     private $dbh;
     private $stmt;
     private $error;
