@@ -85,33 +85,7 @@ class ProductGroupRepository
         return null;
     }
 
-//    public function fetchChildGroups(\ProductGroup $productGroup)
-//    {
-//        $sql = "SELECT child_group_list FROM product_group_tbl WHERE id = :id";
-//        $stmt = $this->pdo->prepare($sql);
-//        $stmt->execute(['id' => $productGroup->getId()]);
-//        $data = $stmt->fetch(PDO::FETCH_ASSOC);
-//
-//        if ($data && $data['child_group_list']) {
-//            $groupIds = json_decode($data['child_group_list'], true);
-//            $childGroups = [];
-//
-//            if (!empty($groupIds)) {
-//                $placeholders = rtrim(str_repeat('?,', count($groupIds)), ',');
-//                $sql = "SELECT * FROM product_group_tbl WHERE id IN ($placeholders)";
-//                $stmt = $this->pdo->prepare($sql);
-//                $stmt->execute($groupIds);
-//                $childGroupsData = $stmt->fetchAll(PDO::FETCH_ASSOC);
-//
-//                foreach ($childGroupsData as $childGroupData) {
-//                    $childGroup = new ProductGroup($childGroupData['name']);
-//                    $childGroup->setId($childGroupData['id']);
-//                    $childGroup->setParentGroup($productGroup);
-//                    $childGroups[] = $childGroup;
-//                }
-//            }  $productGroup->setChildGroupList($childGroups);
-//        }
-//    }
+
 
     public function fetchChildGroups(\ProductGroup $productGroup)
     {
