@@ -53,6 +53,25 @@ class ProductGroupModel
         return null;
     }
 
+//    public function fetchChildGroups($parentId) {
+//        $this->db->query("SELECT child_group_list FROM product_group_tbl WHERE id = :id");
+//        $this->db->bind(":id", $parentId);
+//        $data = $this->db->fetch();
+//
+//        if ($data && $data->child_group_list) {
+//            $groupIds = json_decode($data->child_group_list, true);
+//            if (!empty($groupIds)) {
+//                $placeholders = rtrim(str_repeat('?,', count($groupIds)), ',');
+//                $this->db->query("SELECT * FROM product_group_tbl WHERE id IN ($placeholders)");
+//                $this->db->execute($groupIds);
+//                return $this->db->fetchAll();
+//            }
+//        }
+//        return [];
+//    }
+
+
+
     public function fetchChildGroups($parentId) {
         $this->db->query("SELECT child_group_list FROM product_group_tbl WHERE id = :id");
         $this->db->bind(":id", $parentId);
@@ -61,14 +80,23 @@ class ProductGroupModel
         if ($data && $data->child_group_list) {
             $groupIds = json_decode($data->child_group_list, true);
             if (!empty($groupIds)) {
-                $placeholders = rtrim(str_repeat('?,', count($groupIds)), ',');
-                $this->db->query("SELECT * FROM product_group_tbl WHERE id IN ($placeholders)");
-                $this->db->execute($groupIds);
+                // Create a string of placeholders for the number of group IDs
+                $placeholders = implode(',', array_fill(0, count($groupIds), '?'));
+                $query = "SELECT * FROM product_group_tbl WHERE id IN ($placeholders)";
+                $this->db->query($query);
+
+                // Manually bind each group ID to avoid issues
+                foreach ($groupIds as $index => $id) {
+                    $this->db->bind($index + 1, $id);  // Bind using 1-based index for positional parameters
+                }
+
+                $this->db->execute(); // Execute without passing parameters directly
                 return $this->db->fetchAll();
             }
         }
         return [];
     }
+
 
     public function addChildGroup($parentId, $name) {
         $childGroupId = $this->save($name, $parentId);
