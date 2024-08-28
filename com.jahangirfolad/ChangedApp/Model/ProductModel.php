@@ -74,7 +74,8 @@ class ProductModel
                     }
 
                     $this->db->execute();
-                    return $this->db->fetchAll(PDO::FETCH_COLUMN); // Return only the names
+//                    return $this->db->fetchAll(PDO::FETCH_COLUMN); // Return only the names
+                    return $this->db->fetchAll(); // Return only the names
                 }
             }
         }
