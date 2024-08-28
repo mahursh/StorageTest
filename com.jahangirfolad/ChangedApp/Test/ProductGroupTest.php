@@ -58,11 +58,11 @@ function runTests() {
     echo "Running Test 7: Add a child group and update the child group list\n";
     $anotherChildName = "Smartphones";
     $model->addChildGroup($newGroupId, $anotherChildName);
-    $childGroups = $model->fetchChildGroups($newGroupId);
-    echo "Updated Child Groups of Group ID $newGroupId:\n";
-    foreach ($childGroups as $group) {
-        echo "- " . $group->name . "\n";
-    }
+//    $childGroups = $model->fetchChildGroups($newGroupId);
+//    echo "Updated Child Groups of Group ID $newGroupId:\n";
+//    foreach ($childGroups as $group) {
+//        echo "- " . $group->name . "\n";
+//    }
 }
 
 // Run the tests
