@@ -27,11 +27,13 @@ function runProductTests() {
     $productId = $productModel->save($category,$mainGroupId);
 
     $childGroupNames  = $productModel->getAllChildGroupNames($productId);
-//  foreach ($childGroupNames as $groupName) {
-//      echo "- " . $groupName . "\n";
-//  }
+  foreach ($childGroupNames as $groupName) {
 
-    print_r($childGroupNames);
+      echo $groupName->name  . "\n";
+  }
+  //    print_r($childGroupNames);
+
+
 
 
 
